@@ -10,10 +10,10 @@ function initSimulation() {
 
     exchangeName = selectExchange();
     cryptoCurrencyName = selectCurrency();
-    dateSelected = Date.toISOString();
+    dateSelected = Date.now();
     cryptoCurrencyPrice = getPrice(cryptoCurrencyName, exchangeName);
 
-    alert("El precio de: " + cryptoCurrencyName + "\n En el Exchange: " + exchangeName+ " \n Es de $: " + cryptoCurrencyPrice + " \n Fecha: " + dateSelected);
+    alert("El precio de: " + cryptoCurrencyName + "\n En el Exchange: " + exchangeName+ " \n Es de $: " + cryptoCurrencyPrice.toFixed(2) + " \n Fecha: " + Date.parse(dateSelected);
 }
 
 
@@ -58,7 +58,7 @@ function getPrice(cryptoCurrencyName, exchangeName) {
         case "BITCOIN":
             return getBitcoinPrice(exchangeName);
         case "ETHEREUM":
-            return getEhereumPrice(exchangeName);
+            return getEthereumPrice(exchangeName);
         case "BINANCE COIN":
             return getBinanceCoinPrice(exchangeName);;
     }
