@@ -4,6 +4,7 @@ let exchangeName = "";
 let optionSelected = 0;
 let dateSelected = 0;
 
+debugger;
 
 function initSimulation() {
 
@@ -137,3 +138,5 @@ function getBinanceCoinPrice(exchangeName) {
 
     return 0;
 }
+
+initSimulation();
