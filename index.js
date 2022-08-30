@@ -13,7 +13,7 @@ function initSimulation() {
     dateSelected = Date.now();
     cryptoCurrencyPrice = getPrice(cryptoCurrencyName, exchangeName);
 
-    alert("El precio de: " + cryptoCurrencyName + "\n En el Exchange: " + exchangeName+ " \n Es de $: " + cryptoCurrencyPrice.toFixed(2) + " \n Fecha: " + Date.parse(dateSelected);
+    alert("El precio de: " + cryptoCurrencyName + "\n En el Exchange: " + exchangeName+ " \n Es de $: " + cryptoCurrencyPrice.toFixed(2) + " \n Fecha: " + Date.parse(dateSelected));
 }
 
 
