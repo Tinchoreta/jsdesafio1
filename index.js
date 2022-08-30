@@ -2,18 +2,27 @@ let cryptoCurrencyPrice = 0;
 let cryptoCurrencyName = "";
 let exchangeName = "";
 let optionSelected = 0;
-let dateSelected = 0;
+let keepPlaying = true;
+
+let dateString = "";
 
 debugger;
 
 function initSimulation() {
+    do {
 
-    exchangeName = selectExchange();
-    cryptoCurrencyName = selectCurrency();
-    dateSelected = Date.now();
-    cryptoCurrencyPrice = getPrice(cryptoCurrencyName, exchangeName);
 
-    alert("El precio de: " + cryptoCurrencyName + "\n En el Exchange: " + exchangeName+ " \n Es de $: " + cryptoCurrencyPrice.toFixed(2) + " \n Fecha: " + Date.parse(dateSelected));
+        exchangeName = selectExchange();
+        cryptoCurrencyName = selectCurrency();
+        let dateSelected = new Date(Date.now()).toLocaleDateString();
+
+        dateString = dateSelected;
+        cryptoCurrencyPrice = getPrice(cryptoCurrencyName, exchangeName);
+
+        alert("El precio de: " + cryptoCurrencyName + "\n En el Exchange: " + exchangeName + " \n Es de $: " + cryptoCurrencyPrice.toFixed(2) + " \n Fecha: " + dateString);
+        keepPlaying = confirm("Quieres seguir cotizando?");
+    } while (keepPlaying)
+    alert("Gracias, vuelva pronto!");
 }
 
 
@@ -74,7 +83,7 @@ function getBitcoinPrice(exchangeName) {
             min = 19800;
             max = 21300;
             return parseFloat(Math.random() * (max - min) + min);
-            
+
         case "COINBASE":
             min = 19900;
             max = 22500;
@@ -83,7 +92,7 @@ function getBitcoinPrice(exchangeName) {
         case "KRAKEN":
             min = 20000;
             max = 23000;
-            return parseFloat( Math.random() * (max - min) + min);
+            return parseFloat(Math.random() * (max - min) + min);
     }
 
     return 0;
@@ -99,7 +108,7 @@ function getEthereumPrice(exchangeName) {
             min = 1450;
             max = 1550;
             return parseFloat(Math.random() * (max - min) + min);
-            
+
         case "COINBASE":
             min = 1550;
             max = 1600;
@@ -108,7 +117,7 @@ function getEthereumPrice(exchangeName) {
         case "KRAKEN":
             min = 1600;
             max = 1650;
-            return parseFloat( Math.random() * (max - min) + min);
+            return parseFloat(Math.random() * (max - min) + min);
     }
 
     return 0;
@@ -124,7 +133,7 @@ function getBinanceCoinPrice(exchangeName) {
             min = 250;
             max = 300;
             return parseFloat(Math.random() * (max - min) + min);
-            
+
         case "COINBASE":
             min = 300;
             max = 350;
@@ -133,7 +142,7 @@ function getBinanceCoinPrice(exchangeName) {
         case "KRAKEN":
             min = 350;
             max = 400;
-            return parseFloat( Math.random() * (max - min) + min);
+            return parseFloat(Math.random() * (max - min) + min);
     }
 
     return 0;
